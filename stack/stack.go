@@ -34,15 +34,14 @@ func (self *Stack) Top() (interface{}, error) {
 	return self.current.value, nil
 }
 
-func (self *Stack) Pop() (interface{}, error) {
+func (self *Stack) Pop() error {
 
 	if self.size == 0 {
-		return nil, errors.New("Empty Stack.")
+		return errors.New("Empty Stack.")
 	}
 
-	ret := self.current.value
 	self.current = self.current.prev
 
 	self.size--
-	return ret, nil
+	return nil
 }

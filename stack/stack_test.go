@@ -20,16 +20,13 @@ func Test_all(t *testing.T) {
 		t.Fatal("Top is Error.")
 	}
 
-	value, err = v0.Pop() // expect 3.2
+	err = v0.Pop()
 
 	if err != nil {
 		t.Fatal("expect Not Empty, but got Empty")
 	}
-	if value != 3.2 {
-		t.Fatal("Pop is Error.")
-	}
 
-	value, err = v0.Pop() //expect "dlrjehlsk?"
+	value, err = v0.Top() //expect "dlrjehlsk?"
 
 	if err != nil {
 		t.Fatal("expect Not Empty, but got Empty")
@@ -38,21 +35,25 @@ func Test_all(t *testing.T) {
 		t.Fatal("Pop is Error.")
 	}
 
-	value, err = v0.Pop() //expect "1"
+	err = v0.Pop() //expect "1"
+
+	if err != nil {
+		t.Fatal("expect Not Empty, but got Empty")
+	}
+
+	value, err = v0.Top() //expect "dlrjehlsk?"
 
 	if err != nil {
 		t.Fatal("expect Not Empty, but got Empty")
 	}
 	if value != 1 {
-		t.Fatal("Pop is Error.")
+		t.Fatal("Top is Error.")
 	}
 
-	value, err = v0.Pop()
+	err = v0.Pop()
 
 	if err != nil {
-
-	} else {
-		t.Fatal("expect Empty, but got Not Empty")
+		t.Fatal("expect Not Empty, but got Empty")
 	}
 
 }
